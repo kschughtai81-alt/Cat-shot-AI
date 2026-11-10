@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAT SHOT AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#000;color:#ffdf00;
+ font-family:Arial,sans-serif;height:100vh;
+ display:flex;flex-direction:column;
+}
+header{
+ text-align:center;padding:20px;
+ border-bottom:1px solid #ffdf00;
+}
+.logo{font-size:48px}
+h2{margin:5px}
+#chat{flex:1;overflow:auto;padding:18px}
+.msg{padding:13px;margin:12px 0;border-radius:14px;
+ max-width:85%;line-height:1.5;white-space:pre-wrap}
+.bot{border:1px solid #ffdf00;color:#ffdf00}
+.user{background:#ffdf00;color:#000;margin-left:auto}
+footer{display:flex;padding:12px;gap:8px}
+input{
+ flex:1;min-width:0;background:#111;color:#fff;
+ border:1px solid #ffdf00;border-radius:25px;
+ padding:14px;font-size:16px;
+}
+button{
+ background:#ffdf00;color:#000;border:0;
+ border-radius:25px;padding:12px 18px;font-weight:bold
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">🐱</div>
+<h2>CAT SHOT AI</h2>
+<small>Your funny AI companion</small>
+</header>
+<div id="chat">
+<div class="msg bot">Hey! I'm CAT SHOT AI! 🐱
+I'm ready to chat. Ask me anything!</div>
+</div>
+<footer>
+<input id="message" placeholder="Message CAT SHOT...">
+<button onclick="send()">SEND</button>
+</footer>
+<script>
+function send(){
+ const input=document.getElementById('message');
+ const text=input.value.trim();
+ if(!text)return;
+ add(text,'user');
+ input.value='';
+ add("I'm listening! 😺 My offline AI brain will be connected in our next step.",'bot');
+}
+function add(text,type){
+ const el=document.createElement('div');
+ el.className='msg '+type;
+ el.textContent=text;
+ const chat=document.getElementById('chat');
+ chat.appendChild(el);
+ chat.scrollTop=chat.scrollHeight;
+}
+</script>
+</body>
+</html>
